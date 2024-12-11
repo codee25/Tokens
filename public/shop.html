@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hiram Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Баланс -->
+        <div class="balance">
+            <img src="/Images/A_circular_golden_coin_with_a_cartoonish_style,_fe.png" alt="Hiram Logo" class="balance-logo">
+            <span id="balance">0 HIRAM</span>
+        </div>
+
+        <!-- Заголовок -->
+        <header>
+            <h1>Hiram Shop</h1>
+            <p>Upgrade your abilities and gear!</p>
+        </header>
+
+        <!-- Контейнер з товарами -->
+        <section class="shop-items">
+            <h2>Available Upgrades</h2>
+            <div class="shop-item">
+                <h3>Increase Damage</h3>
+                <p>+1 Damage per click</p>
+                <p>Cost: <span class="item-cost">50 HIRAM</span></p>
+                <button class="buy-button" data-upgrade="damage">Buy</button>
+            </div>
+
+            <div class="shop-item">
+                <h3>Auto Clicker</h3>
+                <p>Automatically deal damage every second</p>
+                <p>Cost: <span class="item-cost">100 HIRAM</span></p>
+                <button class="buy-button" data-upgrade="auto-clicker">Buy</button>
+            </div>
+
+            <div class="shop-item">
+                <h3>Health Boost</h3>
+                <p>Restore health to maximum instantly</p>
+                <p>Cost: <span class="item-cost">20 HIRAM</span></p>
+                <button class="buy-button" data-upgrade="health">Buy</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Меню знизу -->
+    <div class="menu">
+        <button class="menu-button" onclick="window.location.href='index.html'">Home</button>
+        <button class="menu-button" onclick="window.location.href='shop.html'">Shop</button>
+        <button class="menu-button" onclick="window.location.href='leaderboard.html'">Leaderboard</button>
+        <button class="menu-button" onclick="window.location.href='settings.html'">Settings</button>
+    </div>
+
+    <script>
+        // Initialize shop balance
+        const shopBalance = document.getElementById('shop-balance');
+
+        // Placeholder value (replace with real data)
+        let balance = 100;
+
+        shopBalance.textContent = `${balance} HIRAM`;
+
+        // Handle purchases
+        const buyButtons = document.querySelectorAll('.buy-button');
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const upgrade = button.getAttribute('data-upgrade');
+                const cost = parseInt(button.previousElementSibling.textContent.match(/\d+/)[0]);
+
+                if (balance >= cost) {
+                    balance -= cost;
+                    shopBalance.textContent = `${balance} HIRAM`;
+                    alert(`${upgrade} purchased successfully!`);
+                    // Implement the upgrade logic here
+                } else {
+                    alert('Not enough HIRAM tokens!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

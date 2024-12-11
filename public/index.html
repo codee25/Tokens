@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hiram Combat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <div class="game-container">
+        <!-- Баланс -->
+        <div class="balance">
+            <img src="Images/A_circular_golden_coin_with_a_cartoonish_style,_fe.png" alt="Hiram Logo" class="balance-logo">
+            <span id="balance">0 HIRAM</span>
+        </div>
+
+        <!-- Заголовок -->
+        <header>
+            <h1>Hiram Combat</h1>
+            <p>Welcome, <span id="username"></span>! Defeat monsters to earn HIRAM tokens!</p>
+            <p id="level">Level: 1</p>
+        </header>
+
+        <!-- Контейнер з ворогом -->
+        <div class="enemy-container">
+            <img src="/Images/Clicker_Enemy.png" alt="Enemy" id="enemy">
+            <div class="health-bar">
+                <div id="health" class="health"></div>
+            </div>
+            <p id="enemy-health">HP: 100</p>
+        </div>
+
+
+    </div>
+
+    <!-- Меню знизу -->
+    <div class="menu">
+        <button class="menu-button" onclick="navigateTo('index.html')">Home</button>
+        <button class="menu-button" onclick="navigateTo('shop.html')">Shop</button>
+        <button class="menu-button" onclick="navigateTo('leaderboard.html')">Leaderboard</button>
+        <button class="menu-button" onclick="navigateTo('settings.html')">Settings</button>
+    </div>
+
+    <script>
+
+          // Перевірка авторизації
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            // Якщо токена немає, перенаправляємо на сторінку реєстрації
+            window.location.href = 'register.html';
+        }
+    });
+        // Navigate to different pages
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        // Example to dynamically load username or balance
+        document.getElementById('username').textContent = 'Player'; // Replace with actual logic
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

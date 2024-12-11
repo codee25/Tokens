@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hiram Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Заголовок -->
+        <header>
+            <h1>Hiram Leaderboard</h1>
+            <p>See how you rank against other players!</p>
+        </header>
+
+        <!-- Лідерборд -->
+        <section class="leaderboard">
+            <h2>Top Players</h2>
+            <ol id="leaderboard-list">
+                <!-- Placeholder leaderboard items -->
+                <li><strong>Player1</strong>: 1500 HIRAM</li>
+                <li><strong>Player2</strong>: 1200 HIRAM</li>
+                <li><strong>Player3</strong>: 1000 HIRAM</li>
+                <li><strong>Player4</strong>: 800 HIRAM</li>
+                <li><strong>Player5</strong>: 600 HIRAM</li>
+            </ol>
+        </section>
+
+    </div>
+
+    <!-- Меню знизу -->
+    <div class="menu">
+        <button class="menu-button" onclick="window.location.href='index.html'">Home</button>
+        <button class="menu-button" onclick="window.location.href='shop.html'">Shop</button>
+        <button class="menu-button" onclick="window.location.href='leaderboard.html'">Leaderboard</button>
+        <button class="menu-button" onclick="window.location.href='settings.html'">Settings</button>
+    </div>
+
+    <script>
+        // Placeholder leaderboard data (replace with real data from backend)
+        const leaderboardData = [
+            { name: 'Player1', score: 1500 },
+            { name: 'Player2', score: 1200 },
+            { name: 'Player3', score: 1000 },
+            { name: 'Player4', score: 800 },
+            { name: 'Player5', score: 600 }
+        ];
+
+        const leaderboardList = document.getElementById('leaderboard-list');
+
+        // Populate leaderboard
+        leaderboardList.innerHTML = leaderboardData
+            .map(player => `<li><strong>${player.name}</strong>: ${player.score} HIRAM</li>`)
+            .join('');
+    </script>
+</body>
+</html>
